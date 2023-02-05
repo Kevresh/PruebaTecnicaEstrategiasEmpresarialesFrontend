@@ -1,0 +1,17 @@
+<h2>Lista Empresas</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>NIT</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empresa of empresas">
+            <td>{{empresa.nit}}</td>
+            <td>{{empresa.nombre}}</td>
+            <td>{{empresa.estado}}</td>
+        </tr>
+    </tbody>
+</table>

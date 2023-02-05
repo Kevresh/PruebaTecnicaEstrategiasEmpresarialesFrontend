@@ -1,0 +1,207 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de Usuarios</h3>
+    <form (ngSubmit)="onSubmit()" #usuarioForm = "ngForm">
+        <div class="form-group margin-bottom">
+            <label>Cedula:</label>
+            <input type="text" class="form-control" id="cedula" [(ngModel)]="usuario.cedula" name="cedula" required
+            minlength="1"
+            maxlength="12"
+            placeholder="Digite su cedula"
+            #cedula = "ngModel"
+            pattern ="^[0-9]*$">
+            <div class="alert alert-danger" *ngIf= "cedula.invalid && (cedula.dirty || cedula.touched)">
+                <div *ngIf = "cedula.errors?.['required']">
+                  Digite su cedula por favor
+                </div>
+                <div *ngIf = "cedula.errors?.['minlength']">
+                  introduzca una cedula valida
+                </div>
+                <div *ngIf = "cedula.errors?.['maxlength']">
+                  El cedula tiene que tener como maximo 12 caracteres
+                </div>
+                <div *ngIf = "cedula.errors?.['pattern']">
+                  Por favor digite solamente números
+                </div>
+              </div>
+        </div>
+
+        <div class="form-group margin-bottom">
+            <label>Primer Nombre:</label>
+            <input type = "text"
+            class="form-control"
+            id = "primernombre"
+            [(ngModel)] = "usuario.primernombre"
+            name = "primernombre"
+            required
+            minlength="1"
+            maxlength="50"
+            placeholder="Digite su primer nombre"
+            #primernombre = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "primernombre.invalid && (primernombre.dirty || primernombre.touched)">
+              <div *ngIf = "primernombre.errors?.['required']">
+                Digite su primer nombre por favor
+              </div>
+              <div *ngIf = "primernombre.errors?.['minlength']">
+                El primer nombre tiene que contener como minimo 1 caracter
+              </div>
+              <div *ngIf = "primernombre.errors?.['maxlength']">
+                El primer nombre tiene que tener como maximo 50 caracteres
+              </div>
+            </div>
+          </div>
+    
+          <div class="form-group margin-bottom">
+            <label>Segundo Nombre:</label>
+            <input type = "text"
+            class="form-control"
+            id = "segundonombre"
+            [(ngModel)] = "usuario.segundonombre"
+            name = "segundonombre"
+            minlength="1"
+            maxlength="50"
+            placeholder="Digite su segundo nombre"
+            #segundonombre = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "segundonombre.invalid && (segundonombre.dirty || segundonombre.touched)">
+              <div *ngIf = "segundonombre.errors?.['minlength']">
+                El segundo nombre tiene que contener como minimo 1 caracter
+              </div>
+              <div *ngIf = "segundonombre.errors?.['maxlength']">
+                El nsegundo ombre tiene que tener como maximo 50 caracteres
+              </div>
+            </div>
+          </div>
+    
+          <div class="form-group margin-bottom">
+            <label>Primer Apellido:</label>
+            <input type = "text"
+            class="form-control"
+            id = "primerapellido"
+            [(ngModel)] = "usuario.primerapellido"
+            name = "primerapellido"
+            required
+            minlength="1"
+            maxlength="50"
+            placeholder="Digite su primer apellido"
+            #primerapellido = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "primerapellido.invalid && (primerapellido.dirty || primerapellido.touched)">
+              <div *ngIf = "primerapellido.errors?.['required']">
+                Digite su primer apellido por favor
+              </div>
+              <div *ngIf = "primerapellido.errors?.['minlength']">
+                El primer apellido tiene que contener como minimo 1 caracter
+              </div>
+              <div *ngIf = "primerapellido.errors?.['maxlength']">
+                El apellido tiene que tener como maximo 50 caracteres
+              </div>
+            </div>
+          </div>
+          <div class="form-group margin-bottom">
+            <label>Segundo Apellido:</label>
+            <input type = "text"
+            class="form-control"
+            id = "segundoapellido"
+            [(ngModel)] = "usuario.segundoapellido"
+            name = "segundoapellido"
+            required
+            minlength="1"
+            maxlength="50"
+            placeholder="Digite su Segundo apellido"
+            #segundoapellido = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "segundoapellido.invalid && (segundoapellido.dirty || segundoapellido.touched)">
+              <div *ngIf = "segundoapellido.errors?.['required']">
+                Digite su segundo apellido por favor
+              </div>
+              <div *ngIf = "segundoapellido.errors?.['minlength']">
+                El segundo apellido tiene que contener como minimo 1 caracter
+              </div>
+              <div *ngIf = "segundoapellido.errors?.['maxlength']">
+                El segundo apellido tiene que tener como maximo 50 caracteres
+              </div>
+            </div>
+          </div>
+    
+          <div class="form-group margin-bottom">
+            <label>Clave:</label>
+            <input type = "text"
+            class="form-control"
+            id = "clave"
+            [(ngModel)] = "usuario.clave"
+            name = "clave"
+            required
+            minlength="1"
+            maxlength="150"
+            placeholder="Digite su clave"
+            #clave = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "clave.invalid && (clave.dirty || clave.touched)">
+              <div *ngIf = "clave.errors?.['required']">
+                Digite su Clave nombre por favor
+              </div>
+              <div *ngIf = "clave.errors?.['minlength']">
+                La clave tiene que contener como minimo 1 caracter
+              </div>
+              <div *ngIf = "clave.errors?.['maxlength']">
+                La clave tiene que tener como maximo 150 caracteres
+              </div>
+            </div>
+          </div>
+    
+          <div class="form-group margin-bottom">
+            <label>Email:</label>
+            <input type = "text"
+            class="form-control"
+            id = "email"
+            [(ngModel)] = "usuario.email"
+            name = "email"
+            required
+            pattern ="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+            minlength="1"
+            maxlength="50"
+            placeholder="Digite su Email"
+            #email = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "email.invalid && (email.dirty || email.touched)">
+              <div *ngIf = "email.errors?.['required']">
+                Digite su email por favor
+              </div>
+              <div *ngIf = "email.errors?.['minlength']">
+                introduzca un email valido
+              </div>
+              <div *ngIf = "email.errors?.['maxlength']">
+                El nombre tiene que tener como maximo 50 caracteres
+              </div>
+              <div *ngIf = "email.errors?.['pattern']">
+                Por favor digite el email con el siguiente formato : user123@gmail.com
+              </div>
+            </div>
+          </div>
+      
+          <div class="form-group margin-bottom">
+            <label>Empresa:</label>
+            <select class="form-select" name="nitempresa" [(ngModel)]="usuario.nitempresa">
+                <option *ngFor="let empresa of empresas" [ngValue]="empresa.nit" name="nitempresa">
+                    {{empresa.nombre}}</option>
+            </select>
+        </div>
+    
+        <div class="form-group margin-bottom">
+            <label>Rol:</label>
+            <select class="form-select" aria-label="Default select example" name="rol" [(ngModel)]="usuario.rol">
+                <option *ngFor="let rol of roles" [ngValue]="rol.id" name="rol">{{rol.rol}}</option>
+            </select>
+        </div>
+    
+        <div class="form-group margin-bottom">
+            <label>Estado:</label>
+            <select [(ngModel)]="usuario.estado" name ="estado" class="form-select" aria-label="Default select example">
+                <option [ngValue]="1" name="estado">Activo</option>
+                <option [ngValue]="0" name="estado">Inactivo</option>
+            </select>
+        </div>
+        <button class="btn btn-success" [disabled]= "!usuarioForm.form.valid">Guardar</button>
+    </form>
+</div>
